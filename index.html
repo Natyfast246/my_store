@@ -7,9 +7,6 @@
 <title>SmartStuff Store</title>
 
 <style>
-
-/* PAGE */
-
 body {
   font-family: "Times New Roman", Times, serif;
   margin: 0;
@@ -21,9 +18,6 @@ h1 {
   text-align: center;
   font-size: 36px;
 }
-
-
-/* PRODUCTS */
 
 .products {
   display: flex;
@@ -41,14 +35,6 @@ h1 {
   text-align: center;
 }
 
-.product img {
-  width: 100%;
-  border-radius: 8px;
-}
-
-
-/* BUTTONS */
-
 button {
   background: black;
   color: white;
@@ -59,19 +45,12 @@ button {
   font-family: "Times New Roman", Times, serif;
 }
 
-button:hover {
-  opacity: 0.8;
-}
-
-
-/* DROPDOWN LEVEL 1 */
-
 details {
   max-width: 900px;
   margin: 20px auto;
 }
 
-details > summary {
+summary {
   font-size: 26px;
   font-weight: bold;
   cursor: pointer;
@@ -80,39 +59,9 @@ details > summary {
   border-radius: 8px;
 }
 
-
-/* DROPDOWN LEVEL 2 */
-
-details details {
-  max-width: 800px;
-  margin: 15px 0 15px 30px;
-}
-
-details details > summary {
-  font-size: 22px;
-  padding: 12px;
-}
-
-
-/* DROPDOWN LEVEL 3 */
-
-details details details {
-  max-width: 700px;
-  margin: 12px 0 12px 30px;
-}
-
-details details details > summary {
-  font-size: 18px;
-  padding: 10px;
-}
-
-
 summary:hover {
   background: #f5f5f5;
 }
-
-
-/* CART */
 
 .cart {
   margin-top: 40px;
@@ -128,418 +77,158 @@ summary:hover {
   padding: 10px;
   border-bottom: 1px solid #ddd;
 }
-
 </style>
 </head>
 
-
 <body>
-
 
 <h1>SmartStuff Store</h1>
 
-
-<!-- ================================= -->
-<!-- MAIN CATEGORY -->
-<!-- ================================= -->
+<!-- MAIN CATEGORY 1 -->
 
 <details>
-
   <summary>Addicting Fidgets/Toys</summary>
-
-
-  <!-- LEVEL 2 -->
-
-  <details>
-
-    <summary>Toys for Toddlers</summary>
-
-
-    <!-- LEVEL 3 -->
-
-    <details>
-
-      <summary>Squishy Toys</summary>
-
-
-      <div class="products">
-
-
-        <!-- PRODUCT 1 -->
-
-        <div class="product">
-
-          <h2>Squishy Product 1</h2>
-
-          <p>$10.00</p>
-
-          <button onclick="addToCart('Squishy Product 1', 10)">
-            Add to Cart
-          </button>
-
-        </div>
-
-
-        <!-- PRODUCT 2 -->
-
-        <div class="product">
-
-          <h2>Squishy Product 2</h2>
-
-          <p>$12.00</p>
-
-          <button onclick="addToCart('Squishy Product 2', 12)">
-            Add to Cart
-          </button>
-
-        </div>
-
-
-      </div>
-
-    </details>
-
-
-  </details>
-
-
-
-  <!-- ================================= -->
-  <!-- SECOND LEVEL 2 CATEGORY -->
-  <!-- ================================= -->
-
-  <details>
-
-    <summary>Fidgets for Preteens to Teens</summary>
-
-
-    <!-- LEVEL 3 -->
-
-    <details>
-
-      <summary>Expanding Sensory Star Spinner</summary>
-
-
-      <div class="products">
-
-
-        <div class="product">
-
-          <h2>Expanding Sensory Star Spinner (Small)</h2>
-
-          <p>$10.00</p>
-
-          <button onclick="addToCart('Expanding Sensory Star Spinner (Small)', 10)">
-            Add to Cart
-          </button>
-
-        
-        <div class="product">
-
-          <h2>Expanding Sensory Star Spinner (Large)</h2>
-
-          <p>$15.00</p>
-
-          <button onclick="addToCart('Expanding Sensory Star Spinner (Large)', 10)">
-            Add to Cart
-          </button>
-
-        </div>
-
-
-      </div>
-
-
-    </details>
-
-
-
-    <!-- ANOTHER LEVEL 3 -->
-
-    <details>
-
-      <summary>Impossible Passthrough</summary>
-
-
-      <div class="products">
-
-
-        <div class="product">
-
-          <h2>Oval Passthrough</h2>
-
-          <p>$8.00</p>
-
-          <button onclick="addToCart('Oval Passthrough', 10)">
-            Add to Cart
-          </button>  
-          
-        <div class="product">
-
-          <h2>Pyramid Passthrough</h2>
-
-          <p>$8.00</p>
-
-          <button onclick="addToCart('Pyramid Passthrough', 10)">
-            Add to Cart
-          </button>
-
-        </div>
-
-
-      </div>
-
-
-    </details>
-
-
-  </details>
-
-
-</details>
-
-
-
-<!-- ================================= -->
-<!-- PHONE ACCESSORIES -->
-<!-- ================================= -->
-
-<details>
-
-  <summary>Phone Accessories</summary>
-
 
   <div class="products">
 
-
     <div class="product">
-
-      <h2>Product 3</h2>
-
-      <p>$15.00</p>
-
-      <button onclick="addToCart('Product 3', 15)">
+      <h2>Squishy Product 1</h2>
+      <p>$10.00</p>
+      <button onclick="addToCart('Squishy Product 1', 10)">
         Add to Cart
       </button>
-
     </div>
 
+    <div class="product">
+      <h2>Squishy Product 2</h2>
+      <p>$12.00</p>
+      <button onclick="addToCart('Squishy Product 2', 12)">
+        Add to Cart
+      </button>
+    </div>
+
+    <div class="product">
+      <h2>Expanding Sensory Star Spinner</h2>
+      <p>$10.00</p>
+      <button onclick="addToCart('Expanding Sensory Star Spinner', 10)">
+        Add to Cart
+      </button>
+    </div>
+
+    <div class="product">
+      <h2>Oval Passthrough</h2>
+      <p>$10.00</p>
+      <button onclick="addToCart('Oval Passthrough', 10)">
+        Add to Cart
+      </button>
+    </div>
 
   </div>
-
-
 </details>
 
 
+<!-- MAIN CATEGORY 2 -->
 
-<!-- ================================= -->
+<details>
+  <summary>Phone Accessories</summary>
+
+  <div class="products">
+
+    <div class="product">
+      <h2>Product 3</h2>
+      <p>$15.00</p>
+      <button onclick="addToCart('Product 3', 15)">
+        Add to Cart
+      </button>
+    </div>
+
+  </div>
+</details>
+
+
 <!-- SHOPPING CART -->
-<!-- ================================= -->
 
 <div class="cart">
-
   <h2>🛒 Your Cart</h2>
-
   <div id="cart-items"></div>
-
   <h3 id="total">Total: $0.00</h3>
-
 </div>
 
 
-
-<!-- ================================= -->
-<!-- JAVASCRIPT -->
-<!-- ================================= -->
-
 <script>
-
-
-/* LOAD SAVED CART */
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 
-
-/* ADD ITEM TO CART */
-
 function addToCart(name, price) {
-
-  let item = cart.find(
-    product => product.name === name
-  );
-
+  let item = cart.find(product => product.name === name);
 
   if (item) {
-
     item.quantity++;
-
   } else {
-
     cart.push({
-
       name: name,
-
       price: price,
-
       quantity: 1
-
     });
-
   }
 
-
   saveCart();
-
   displayCart();
-
 }
 
 
-
-/* CHANGE QUANTITY */
-
 function changeQuantity(name, amount) {
-
-  let item = cart.find(
-    product => product.name === name
-  );
-
+  let item = cart.find(product => product.name === name);
 
   if (!item) return;
 
-
   item.quantity += amount;
 
-
-  /* REMOVE ITEM IF QUANTITY IS ZERO */
-
   if (item.quantity <= 0) {
-
-    cart = cart.filter(
-      product => product.name !== name
-    );
-
+    cart = cart.filter(product => product.name !== name);
   }
 
-
   saveCart();
-
   displayCart();
-
 }
 
-
-
-/* SAVE CART */
 
 function saveCart() {
-
-  localStorage.setItem(
-    "cart",
-    JSON.stringify(cart)
-  );
-
+  localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 
-
-/* DISPLAY CART */
-
 function displayCart() {
-
-
-  const cartItems =
-    document.getElementById("cart-items");
-
-
-  const total =
-    document.getElementById("total");
-
+  const cartItems = document.getElementById("cart-items");
+  const total = document.getElementById("total");
 
   cartItems.innerHTML = "";
 
-
   let totalPrice = 0;
 
-
-
-  /* SHOW EACH ITEM */
-
   cart.forEach(item => {
-
-
-    totalPrice +=
-      item.price * item.quantity;
-
+    totalPrice += item.price * item.quantity;
 
     cartItems.innerHTML += `
-
       <div class="cart-item">
-
-
+        <span>${item.name} - $${item.price.toFixed(2)}</span>
         <span>
-
-          ${item.name}
-
-          - $${item.price.toFixed(2)}
-
-        </span>
-
-
-
-        <span>
-
-
-          <button onclick="changeQuantity('${item.name}', -1)">
-
-            −
-
-          </button>
-
-
+          <button onclick="changeQuantity('${item.name}', -1)">−</button>
           ${item.quantity}
-
-
-          <button onclick="changeQuantity('${item.name}', 1)">
-
-            +
-
-          </button>
-
-
+          <button onclick="changeQuantity('${item.name}', 1)">+</button>
         </span>
-
-
       </div>
-
     `;
-
-
   });
 
-
-
-  /* SHOW TOTAL */
-
-  total.innerText =
-
-    "Total: $" +
-
-    totalPrice.toFixed(2);
-
-
+  total.innerText = "Total: $" + totalPrice.toFixed(2);
 }
 
 
-
-/* SHOW CART WHEN PAGE OPENS */
-
 displayCart();
 
-
 </script>
-
 
 </body>
 </html>
