@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>My Store</title>
+<title>SmartStuff Store</title>
 
 <style>
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Times New Roman", Times, serif;
   margin: 0;
   padding: 20px;
   background: white;
@@ -16,6 +16,7 @@ body {
 
 h1 {
   text-align: center;
+  font-size: 36px;
 }
 
 .products {
@@ -23,6 +24,7 @@ h1 {
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
+  padding-top: 20px;
 }
 
 .product {
@@ -45,6 +47,31 @@ button {
   padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
+  font-family: "Times New Roman", Times, serif;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* DROPDOWN SECTIONS */
+
+details {
+  max-width: 900px;
+  margin: 25px auto;
+}
+
+summary {
+  font-size: 26px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+summary:hover {
+  background: #f5f5f5;
 }
 
 .cart {
@@ -57,6 +84,7 @@ button {
 .cart-item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 10px;
   border-bottom: 1px solid #ddd;
 }
@@ -65,57 +93,103 @@ button {
 
 <body>
 
-<h1>My Store</h1>
+<h1>SmartStuff Store</h1>
 
-<div class="products">
 
-  <div class="product">
-    <h2>Product 1</h2>
-    <p>$10.00</p>
-    <button onclick="addToCart('Product 1', 10)">Add to Cart</button>
+<!-- FIDGETS DROPDOWN -->
+
+<details>
+  <summary>Fidgets</summary>
+
+  <div class="products">
+
+    <div class="product">
+      <h2>Product 1</h2>
+      <p>$10.00</p>
+      <button onclick="addToCart('Product 1', 10)">
+        Add to Cart
+      </button>
+    </div>
+
+    <div class="product">
+      <h2>Product 2</h2>
+      <p>$20.00</p>
+      <button onclick="addToCart('Product 2', 20)">
+        Add to Cart
+      </button>
+    </div>
+
   </div>
+</details>
 
-  <div class="product">
-    <h2>Product 2</h2>
-    <p>$20.00</p>
-    <button onclick="addToCart('Product 2', 20)">Add to Cart</button>
+
+<!-- PHONE ACCESSORIES DROPDOWN -->
+
+<details>
+  <summary>Phone Accessories</summary>
+
+  <div class="products">
+
+    <div class="product">
+      <h2>Product 3</h2>
+      <p>$15.00</p>
+      <button onclick="addToCart('Product 3', 15)">
+        Add to Cart
+      </button>
+    </div>
+
   </div>
+</details>
 
-  <div class="product">
-    <h2>Product 3</h2>
-    <p>$15.00</p>
-    <button onclick="addToCart('Product 3', 15)">Add to Cart</button>
-  </div>
 
-</div>
+<!-- SHOPPING CART -->
 
 <div class="cart">
+
   <h2>🛒 Your Cart</h2>
+
   <div id="cart-items"></div>
+
   <h3 id="total">Total: $0.00</h3>
+
 </div>
 
+
 <script>
+
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+
+/* ADD TO CART */
+
 function addToCart(name, price) {
+
   let item = cart.find(product => product.name === name);
 
   if (item) {
+
     item.quantity++;
+
   } else {
+
     cart.push({
       name: name,
       price: price,
       quantity: 1
     });
+
   }
 
   saveCart();
   displayCart();
+
 }
 
+
+/* CHANGE QUANTITY */
+
 function changeQuantity(name, amount) {
+
   let item = cart.find(product => product.name === name);
 
   if (!item) return;
@@ -123,44 +197,84 @@ function changeQuantity(name, amount) {
   item.quantity += amount;
 
   if (item.quantity <= 0) {
+
     cart = cart.filter(product => product.name !== name);
+
   }
 
   saveCart();
   displayCart();
+
 }
+
+
+/* SAVE CART */
 
 function saveCart() {
+
   localStorage.setItem("cart", JSON.stringify(cart));
+
 }
 
+
+/* DISPLAY CART */
+
 function displayCart() {
+
   const cartItems = document.getElementById("cart-items");
+
   const total = document.getElementById("total");
 
   cartItems.innerHTML = "";
 
   let totalPrice = 0;
 
+
   cart.forEach(item => {
+
     totalPrice += item.price * item.quantity;
 
+
     cartItems.innerHTML += `
+
       <div class="cart-item">
-        <span>${item.name} - $${item.price}</span>
+
         <span>
-          <button onclick="changeQuantity('${item.name}', -1)">−</button>
-          ${item.quantity}
-          <button onclick="changeQuantity('${item.name}', 1)">+</button>
+          ${item.name} - $${item.price}
         </span>
+
+
+        <span>
+
+          <button onclick="changeQuantity('${item.name}', -1)">
+            −
+          </button>
+
+          ${item.quantity}
+
+          <button onclick="changeQuantity('${item.name}', 1)">
+            +
+          </button>
+
+        </span>
+
       </div>
+
     `;
+
   });
 
-  total.innerText = "Total: $" + totalPrice.toFixed(2);
+
+  total.innerText =
+    "Total: $" + totalPrice.toFixed(2);
+
 }
 
+
+/* LOAD CART */
+
 displayCart();
+
 </script>
 
 </body>
