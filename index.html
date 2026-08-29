@@ -99,27 +99,78 @@ summary:hover {
 <!-- FIDGETS DROPDOWN -->
 
 <details>
-  <summary>Fidgets</summary>
+  <summary>Addicting Fidgets/Toys</summary>
 
-  <div class="products">
+  <details>
+  <summary>Addicting Fidgets/Toys</summary>
 
-    <div class="product">
-      <h2>Product 1</h2>
-      <p>$10.00</p>
-      <button onclick="addToCart('Product 1', 10)">
-        Add to Cart
-      </button>
+  <!-- DROPDOWN INSIDE THE DROPDOWN -->
+  <details class="inner-dropdown">
+    <summary>Toys For Toddlers</summary>
+
+    <div class="products">
+      <div class="product">
+        <h2>Squishy Product 1</h2>
+        <p>$10.00</p>
+        <button onclick="addToCart('Squishy Product 1', 10)">
+          Add to Cart
+        </button>
+      </div>
+
+      <div class="product">
+        <h2>Squishy Product 2</h2>
+        <p>$12.00</p>
+        <button onclick="addToCart('Squishy Product 2', 12)">
+          Add to Cart
+        </button>
+      </div>
     </div>
+  </details>
 
-    <div class="product">
-      <h2>Product 2</h2>
-      <p>$20.00</p>
-      <button onclick="addToCart('Product 2', 20)">
-        Add to Cart
-      </button>
-    </div>
 
-  </div>
+  <!-- ANOTHER INNER DROPDOWN -->
+  <details class="inner-dropdown">
+    <summary>Fidgets for Preteens to Teens</summary>
+
+   <details class="third-dropdown">
+      <summary>Expanding Sensory Star Spinner
+</summary>
+
+      <div class="products">
+        <div class="product">
+          <h2>Expanding Sensory Star Spinner
+</h2>
+          <p>$8.00</p>
+          <button onclick="addToCart('Expanding Sensory Star Spinner
+', 10)">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+    </details>
+  </details>
+
+</details>
+
+
+  <!-- THIRD LEVEL -->
+    <details class="third-dropdown">
+      <summary>Impossible Passthrough</summary>
+
+      <div class="products">
+        <div class="product">
+          <h2>Oval Passthrough</h2>
+          <p>$8.00</p>
+          <button onclick="addToCart('Oval Passthrough', 10)">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+    </details>
+  </details>
+
 </details>
 
 
