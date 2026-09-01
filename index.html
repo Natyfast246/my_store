@@ -28,7 +28,7 @@ h1 {
   padding-top: 15px;
 }
 
-/* MEDIUM PRODUCT BOXES */
+/* PRODUCT BOXES */
 .product {
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -63,7 +63,7 @@ button:hover {
   opacity: 0.8;
 }
 
-/* MAIN DROPDOWNS */
+/* DROPDOWNS */
 details {
   max-width: 900px;
   margin: 20px auto;
@@ -104,7 +104,9 @@ summary:hover {
 
 <h1>SmartStuff Store</h1>
 
-<!-- MAIN CATEGORY 1 -->
+
+<!-- ADDICTING FIDGETS / TOYS -->
+
 <details>
   <summary>Addicting Fidgets/Toys</summary>
 
@@ -142,9 +144,6 @@ summary:hover {
       </button>
     </div>
 
-  </div>
-</details>
-
     <div class="product">
       <h2>Pyramid Impossible Passthrough</h2>
       <p>$8.00</p>
@@ -153,10 +152,7 @@ summary:hover {
       </button>
     </div>
 
-  </div>
-</details>
-
-   <div class="product">
+    <div class="product">
       <h2>Cone Impossible Passthrough</h2>
       <p>$8.00</p>
       <button onclick="addToCart('Cone Impossible Passthrough', 8)">
@@ -164,10 +160,7 @@ summary:hover {
       </button>
     </div>
 
-  </div>
-</details>  
-  
-  <div class="product">
+    <div class="product">
       <h2>HEXAGON ONLY! Mini Layered Shapes</h2>
       <p>$2.00</p>
       <button onclick="addToCart('HEXAGON ONLY! Mini Layered Shapes', 2)">
@@ -175,10 +168,7 @@ summary:hover {
       </button>
     </div>
 
-  </div>
-</details>
-
-   <div class="product">
+    <div class="product">
       <h2>Entire Set Mini Layered Shapes</h2>
       <p>$12.00</p>
       <button onclick="addToCart('Entire Set Mini Layered Shapes', 12)">
@@ -189,7 +179,9 @@ summary:hover {
   </div>
 </details>
 
-<!-- MAIN CATEGORY 2 -->
+
+<!-- USEFUL HOUSEHOLD GADGETS -->
+
 <details>
   <summary>Useful Household Gadgets</summary>
 
@@ -206,15 +198,19 @@ summary:hover {
   </div>
 </details>
 
+
 <!-- SHOPPING CART -->
+
 <div class="cart">
   <h2>🛒 Your Cart</h2>
   <div id="cart-items"></div>
   <h3 id="total">Total: $0.00</h3>
 </div>
 
+
 <script>
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
 
 function addToCart(name, price) {
   let item = cart.find(product => product.name === name);
@@ -233,6 +229,7 @@ function addToCart(name, price) {
   displayCart();
 }
 
+
 function changeQuantity(name, amount) {
   let item = cart.find(product => product.name === name);
 
@@ -248,9 +245,11 @@ function changeQuantity(name, amount) {
   displayCart();
 }
 
+
 function saveCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
+
 
 function displayCart() {
   const cartItems = document.getElementById("cart-items");
@@ -265,6 +264,7 @@ function displayCart() {
     cartItems.innerHTML += `
       <div class="cart-item">
         <span>${item.name} - $${item.price.toFixed(2)}</span>
+
         <span>
           <button onclick="changeQuantity('${item.name}', -1)">−</button>
           ${item.quantity}
@@ -276,6 +276,7 @@ function displayCart() {
 
   total.innerText = "Total: $" + totalPrice.toFixed(2);
 }
+
 
 displayCart();
 </script>
