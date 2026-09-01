@@ -19,32 +19,47 @@ h1 {
   font-size: 36px;
 }
 
+/* PRODUCT AREA */
 .products {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 10px;
   justify-content: center;
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
+/* SMALLER PRODUCT BOXES */
 .product {
   border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 15px;
-  width: 200px;
+  border-radius: 6px;
+  padding: 5px;
+  width: 100px;
   text-align: center;
 }
 
+.product h2 {
+  font-size: 13px;
+  margin: 5px 0;
+}
+
+.product p {
+  font-size: 12px;
+  margin: 5px 0;
+}
+
+/* BUTTONS */
 button {
   background: black;
   color: white;
   border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
+  padding: 5px 7px;
+  border-radius: 4px;
   cursor: pointer;
   font-family: "Times New Roman", Times, serif;
+  font-size: 10px;
 }
 
+/* MAIN DROPDOWNS */
 details {
   max-width: 900px;
   margin: 20px auto;
@@ -63,6 +78,7 @@ summary:hover {
   background: #f5f5f5;
 }
 
+/* CART */
 .cart {
   margin-top: 40px;
   max-width: 700px;
@@ -156,9 +172,7 @@ summary:hover {
 
 
 <script>
-
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
 
 function addToCart(name, price) {
   let item = cart.find(product => product.name === name);
@@ -177,7 +191,6 @@ function addToCart(name, price) {
   displayCart();
 }
 
-
 function changeQuantity(name, amount) {
   let item = cart.find(product => product.name === name);
 
@@ -193,11 +206,9 @@ function changeQuantity(name, amount) {
   displayCart();
 }
 
-
 function saveCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
-
 
 function displayCart() {
   const cartItems = document.getElementById("cart-items");
@@ -225,9 +236,7 @@ function displayCart() {
   total.innerText = "Total: $" + totalPrice.toFixed(2);
 }
 
-
 displayCart();
-
 </script>
 
 </body>
