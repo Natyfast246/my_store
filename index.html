@@ -25,6 +25,7 @@ h1 {
   flex-wrap: wrap;
   gap: 15px;
   justify-content: center;
+  align-items: stretch;
   padding-top: 15px;
 }
 
@@ -35,8 +36,19 @@ h1 {
   padding: 8px;
   width: 140px;
   text-align: center;
+  box-sizing: border-box;
 }
 
+/* PRODUCT IMAGES */
+.product img {
+  width: 100%;
+  height: 130px;
+  object-fit: contain;
+  border-radius: 6px;
+  margin-bottom: 5px;
+}
+
+/* PRODUCT TEXT */
 .product h2 {
   font-size: 16px;
   margin: 6px 0;
@@ -82,7 +94,7 @@ summary:hover {
   background: #f5f5f5;
 }
 
-/* CART */
+/* SHOPPING CART */
 .cart {
   margin-top: 40px;
   max-width: 700px;
@@ -98,6 +110,7 @@ summary:hover {
   border-bottom: 1px solid #ddd;
 }
 </style>
+
 </head>
 
 <body>
@@ -108,199 +121,365 @@ summary:hover {
 <!-- ADDICTING FIDGETS / TOYS -->
 
 <details>
+
   <summary>Addicting Fidgets/Toys</summary>
 
   <div class="products">
 
+
     <div class="product">
+
       <h2>Squishy Product 1</h2>
+
       <p>$10.00</p>
+
       <button onclick="addToCart('Squishy Product 1', 10)">
         Add to Cart
       </button>
+
     </div>
 
+
     <div class="product">
+
       <h2>Squishy Product 2</h2>
+
       <p>$12.00</p>
+
       <button onclick="addToCart('Squishy Product 2', 12)">
         Add to Cart
       </button>
+
     </div>
 
+
     <div class="product">
+
       <h2>Expanding Sensory Star Spinner</h2>
+
       <p>$10.00</p>
+
       <button onclick="addToCart('Expanding Sensory Star Spinner', 10)">
         Add to Cart
       </button>
+
     </div>
 
+
+    <!-- OVAL IMPOSSIBLE PASSTHROUGH -->
+
     <div class="product">
+
+      <img
+        src="images/oval-impossible-passthrough.png"
+        alt="Oval Impossible Passthrough"
+      >
+
       <h2>Oval Impossible Passthrough</h2>
+
       <p>$8.00</p>
+
       <button onclick="addToCart('Oval Impossible Passthrough', 8)">
         Add to Cart
       </button>
+
     </div>
 
+
+    <!-- PYRAMID IMPOSSIBLE PASSTHROUGH -->
+
     <div class="product">
+
+      <img
+        src="images/pyramid-impossible-passthrough.png"
+        alt="Pyramid Impossible Passthrough"
+      >
+
       <h2>Pyramid Impossible Passthrough</h2>
+
       <p>$8.00</p>
+
       <button onclick="addToCart('Pyramid Impossible Passthrough', 8)">
         Add to Cart
       </button>
+
     </div>
 
+
+    <!-- CONE IMPOSSIBLE PASSTHROUGH -->
+
     <div class="product">
+
+      <img
+        src="images/cone-impossible-passthrough.png"
+        alt="Cone Impossible Passthrough"
+      >
+
       <h2>Cone Impossible Passthrough</h2>
+
       <p>$8.00</p>
+
       <button onclick="addToCart('Cone Impossible Passthrough', 8)">
         Add to Cart
       </button>
+
     </div>
 
+
+    <!-- HEXAGON ONLY -->
+
     <div class="product">
+
+      <img
+        src="images/hexagon-mini-layered-shapes.png"
+        alt="Hexagon Only Mini Layered Shapes"
+      >
+
       <h2>HEXAGON ONLY! Mini Layered Shapes</h2>
+
       <p>$2.00</p>
+
       <button onclick="addToCart('HEXAGON ONLY! Mini Layered Shapes', 2)">
         Add to Cart
       </button>
+
     </div>
 
+
+    <!-- ENTIRE SET -->
+
     <div class="product">
+
+      <img
+        src="images/entire-set-mini-layered-shapes.png"
+        alt="Entire Set Mini Layered Shapes"
+      >
+
       <h2>Entire Set Mini Layered Shapes</h2>
+
       <p>$12.00</p>
+
       <button onclick="addToCart('Entire Set Mini Layered Shapes', 12)">
         Add to Cart
       </button>
+
     </div>
 
+
   </div>
+
 </details>
 
 
 <!-- USEFUL HOUSEHOLD GADGETS -->
 
 <details>
+
   <summary>Useful Household Gadgets</summary>
+
+
+  <!-- THIS PRODUCTS DIV CENTERS THE PHONE HOLDER -->
 
   <div class="products">
 
+
     <div class="product">
+
       <h2>Phone Holder</h2>
+
       <p>$5.00</p>
+
       <button onclick="addToCart('Phone Holder', 5)">
         Add to Cart
       </button>
+
     </div>
 
-  </div>
-</details>
-
-    <div class="product">
-      <h2>Headphone Holder (SINGLE)</h2>
-      <p>$8.00</p>
-      <button onclick="addToCart('Headphone Holder (SINGLE)', 8)">
-        Add to Cart
-      </button>
-    </div>
 
   </div>
-</details>
-    
-  <div class="product">
-      <h2>Headphone Holder (DOUBLE)</h2>
-      <p>$15.00</p>
-      <button onclick="addToCart('Headphone Holder (DOUBLE)', 15)">
-        Add to Cart
-      </button>
-    </div>
 
-  </div>
 </details>
 
 
 <!-- SHOPPING CART -->
 
 <div class="cart">
+
   <h2>🛒 Your Cart</h2>
+
   <div id="cart-items"></div>
-  <h3 id="total">Total: $0.00</h3>
+
+  <h3 id="total">
+    Total: $0.00
+  </h3>
+
 </div>
 
 
 <script>
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+/* LOAD SAVED CART */
+
+let cart = JSON.parse(
+  localStorage.getItem("cart")
+) || [];
+
+
+/* ADD ITEM TO CART */
 
 function addToCart(name, price) {
-  let item = cart.find(product => product.name === name);
+
+  let item = cart.find(
+    product => product.name === name
+  );
+
 
   if (item) {
+
     item.quantity++;
+
   } else {
+
     cart.push({
       name: name,
       price: price,
       quantity: 1
     });
+
   }
 
+
   saveCart();
+
   displayCart();
+
 }
 
 
-function changeQuantity(name, amount) {
-  let item = cart.find(product => product.name === name);
+/* CHANGE QUANTITY */
 
-  if (!item) return;
+function changeQuantity(name, amount) {
+
+  let item = cart.find(
+    product => product.name === name
+  );
+
+
+  if (!item) {
+
+    return;
+
+  }
+
 
   item.quantity += amount;
 
+
   if (item.quantity <= 0) {
-    cart = cart.filter(product => product.name !== name);
+
+    cart = cart.filter(
+      product => product.name !== name
+    );
+
   }
 
+
   saveCart();
+
   displayCart();
+
 }
 
+
+/* SAVE CART */
 
 function saveCart() {
-  localStorage.setItem("cart", JSON.stringify(cart));
+
+  localStorage.setItem(
+    "cart",
+    JSON.stringify(cart)
+  );
+
 }
 
+
+/* DISPLAY CART */
 
 function displayCart() {
-  const cartItems = document.getElementById("cart-items");
-  const total = document.getElementById("total");
+
+  const cartItems = document.getElementById(
+    "cart-items"
+  );
+
+  const total = document.getElementById(
+    "total"
+  );
+
 
   cartItems.innerHTML = "";
+
+
   let totalPrice = 0;
 
+
   cart.forEach(item => {
-    totalPrice += item.price * item.quantity;
+
+
+    totalPrice +=
+      item.price * item.quantity;
+
 
     cartItems.innerHTML += `
+
       <div class="cart-item">
-        <span>${item.name} - $${item.price.toFixed(2)}</span>
 
         <span>
-          <button onclick="changeQuantity('${item.name}', -1)">−</button>
-          ${item.quantity}
-          <button onclick="changeQuantity('${item.name}', 1)">+</button>
+
+          ${item.name}
+          -
+          $${item.price.toFixed(2)}
+
         </span>
+
+
+        <span>
+
+          <button
+            onclick="changeQuantity('${item.name}', -1)"
+          >
+            −
+          </button>
+
+
+          ${item.quantity}
+
+
+          <button
+            onclick="changeQuantity('${item.name}', 1)"
+          >
+            +
+          </button>
+
+        </span>
+
       </div>
+
     `;
+
   });
 
-  total.innerText = "Total: $" + totalPrice.toFixed(2);
+
+  total.innerText =
+    "Total: $" +
+    totalPrice.toFixed(2);
+
 }
 
 
+/* SHOW CART WHEN PAGE OPENS */
+
 displayCart();
+
 </script>
 
 </body>
