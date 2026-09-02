@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SmartStuff Store Shopping Cart</title>
+
+<title>🛒 SmartStuff Store</title>
 
 <style>
 body {
@@ -104,7 +105,7 @@ summary:hover {
 
 <body>
 
-<h1>SmartStuff Store Shopping Cart</h1>
+<h1>🛒 SmartStuff Store Shopping Cart</h1>
 
 <details>
   <summary>Addicting Fidgets/Toys</summary>
@@ -167,26 +168,36 @@ summary:hover {
   </div>
 </details>
 
+
 <details>
   <summary>Useful Household Gadgets</summary>
 
   <div class="products">
+
     <div class="product">
       <h2>Phone Holder</h2>
       <p>$5.00</p>
       <button onclick="addToCart('Phone Holder', 5)">Add to Cart</button>
     </div>
+
   </div>
 </details>
 
+
 <div class="cart">
+
   <h2>🛒 Your Cart</h2>
+
   <div id="cart-items"></div>
+
   <h3 id="total">Total: $0.00</h3>
+
 </div>
+
 
 <script>
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
 
 function addToCart(name, price) {
   let item = cart.find(product => product.name === name);
@@ -194,15 +205,21 @@ function addToCart(name, price) {
   if (item) {
     item.quantity++;
   } else {
-    cart.push({ name: name, price: price, quantity: 1 });
+    cart.push({
+      name: name,
+      price: price,
+      quantity: 1
+    });
   }
 
   saveCart();
   displayCart();
 }
 
+
 function changeQuantity(name, amount) {
   let item = cart.find(product => product.name === name);
+
   if (!item) return;
 
   item.quantity += amount;
@@ -215,9 +232,11 @@ function changeQuantity(name, amount) {
   displayCart();
 }
 
+
 function saveCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
+
 
 function displayCart() {
   const cartItems = document.getElementById("cart-items");
@@ -243,6 +262,7 @@ function displayCart() {
 
   total.innerText = "Total: $" + totalPrice.toFixed(2);
 }
+
 
 displayCart();
 </script>
